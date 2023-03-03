@@ -1,0 +1,21 @@
+<child-component #child></child-component>
+<p-dataTable #dt [value]="data" sortMode="single" reorderableColumns="true" scrollable="true" scrollHeight="350px" [(selection)]="selectedItems" [globalFilter]="child.gb.nativeElement" columnResizeMode="expand">
+  <p-header [style]="{'width': '90%'}">
+    <div class="ui-helper-clearfix">
+      Big Table
+    </div>
+  </p-header>
+  <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+
+  <p-column field="Col1" header="Column 1" [sortable]="true" [style]="{'width': '200px'}"></p-column>
+  <p-column field="Col2" header="Column 2" [sortable]="true" [style]="{'width': '200px'}"></p-column>
+  <p-column field="Col3" header="Column 3" [sortable]="true" [style]="{'width': '200px'}">
+    <template let-data="rowData" pTemplate="body">
+      <div class="colordiv">
+        <div class="colorbox" [title]="'#' + data['Col3']" [ngStyle]="{'background-color': '#' + data['Col3']}">
+        </div>
+      </div>
+    </template>
+  </p-column>
+  
+</p-dataTable>
